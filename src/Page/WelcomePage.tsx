@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { useFetchHomePageCards } from "./customHooks/fetchHomePageCardsHook";
+import { AvailableWelfares } from "./AvailableWelfares/AvailableWelfares";
+import { MainActions } from "./MainActions/MainActions";
 
 export const WelcomePage: FC = () => {
     
@@ -15,10 +17,8 @@ export const WelcomePage: FC = () => {
 
     return (
         <>
-            {/*
-            <MainActionsSection />
-            <AvailableWelfares />
-             */}
+            <MainActions cards={fetchHomePageCardsState.primaryHomePageCards} />
+            <AvailableWelfares cards={fetchHomePageCardsState.secondaryHomePageCards}/>
         </>
     )
 }
