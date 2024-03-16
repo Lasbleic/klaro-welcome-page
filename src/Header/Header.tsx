@@ -1,10 +1,10 @@
-import * as React from "react";
-import logo from "./logo.svg"
+import { FC } from "react";
+import logo from "./logo.svg";
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
     return (
         <header>
-            <img src={logo} alt="Klaro logo"/>
+            <img src={logo} alt="Klaro logo" />
         </header>
-    )
-}
+    );
+};

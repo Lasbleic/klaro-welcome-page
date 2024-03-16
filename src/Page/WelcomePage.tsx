@@ -6,21 +6,20 @@ import { ErrorState } from "./ErrorState";
 import { LoadingState } from "./LoadingState";
 
 export const WelcomePage: FC = () => {
-    
     const fetchHomePageCardsState = useFetchHomePageCards();
 
     if (fetchHomePageCardsState.isLoading) {
-        return <LoadingState />
+        return <LoadingState />;
     }
 
     if (fetchHomePageCardsState.isError) {
-        return <ErrorState />
+        return <ErrorState />;
     }
 
     return (
         <>
             <MainActions cards={fetchHomePageCardsState.primaryHomePageCards} />
-            <AvailableWelfares cards={fetchHomePageCardsState.secondaryHomePageCards}/>
+            <AvailableWelfares cards={fetchHomePageCardsState.secondaryHomePageCards} />
         </>
-    )
-}
+    );
+};
