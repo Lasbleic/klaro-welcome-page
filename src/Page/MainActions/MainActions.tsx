@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { PrimaryHomePageCard } from "../model/homePageCard";
+import { Card } from "../shared/Card";
 
 interface MainActionsProps {
     cards: PrimaryHomePageCard[];
@@ -11,9 +12,7 @@ export const MainActions: FC<MainActionsProps> = (props) => {
     return (
         <>
             {cards.map((card) => (
-                <h2 key={card.id}>
-                    {card.id} - {card.title}
-                </h2>
+                <Card {...card} />
             ))}
         </>
     );
