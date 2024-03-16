@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Header } from "./Header/Header";
-import { WelcomePage } from "./Page/WelcomePage";
+import { WelcomePage } from "./WelcomePage/WelcomePage";
 import styles from "./App.module.css";
 
 export const App: React.FC = () => {
