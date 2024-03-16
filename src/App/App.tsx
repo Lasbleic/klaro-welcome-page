@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Header } from "./Header/Header";
+import { Header } from "./shared/Component/PageLayout/PageLayout";
 import { WelcomePage } from "./WelcomePage/WelcomePage";
 import styles from "./App.module.css";
 
