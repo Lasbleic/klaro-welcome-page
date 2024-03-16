@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { PrimaryHomePageCard } from "../model/homePageCard";
-import { Card } from "../shared/Card";
+import { PrimaryHomePageCard } from "../../shared/model/homePageCard";
+import { Card } from "../../shared/Component/Card";
 
 interface MainActionsProps {
     name: string;

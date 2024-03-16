@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useFetchHomePageCards } from "./customHooks/fetchHomePageCardsHook";
+import { useFetchHomePageCards } from "../shared/customHooks/fetchHomePageCardsHook";
 import { AvailableWelfares } from "./AvailableWelfares/AvailableWelfares";
 import { MainActions } from "./MainActions/MainActions";
 import { ErrorState } from "./ErrorState";
