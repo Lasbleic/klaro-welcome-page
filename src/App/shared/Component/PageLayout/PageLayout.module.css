@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Rubik';
+    src: local('Rubik'), url(../../../../fonts/Rubik-VariableFont_wght.ttf) format('truetype');
+    font-weight: 300 900;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    background-color: #E8F3FE;
+}
+
 .header {
     height: 60px;
     display: flex;
