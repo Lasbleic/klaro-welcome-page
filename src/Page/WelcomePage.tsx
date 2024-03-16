@@ -5,6 +5,8 @@ import { MainActions } from "./MainActions/MainActions";
 import { ErrorState } from "./ErrorState";
 import { LoadingState } from "./LoadingState";
 
+const USER_NAME = "Clément";
+
 export const WelcomePage: FC = () => {
     const fetchHomePageCardsState = useFetchHomePageCards();
 
@@ -18,7 +20,7 @@ export const WelcomePage: FC = () => {
 
     return (
         <>
-            <MainActions cards={fetchHomePageCardsState.primaryHomePageCards} />
+            <MainActions name={USER_NAME} cards={fetchHomePageCardsState.primaryHomePageCards} />
             <AvailableWelfares cards={fetchHomePageCardsState.secondaryHomePageCards} />
         </>
     );

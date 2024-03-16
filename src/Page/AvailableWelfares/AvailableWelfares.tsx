@@ -11,6 +11,7 @@ export const AvailableWelfares: FC<AvailableWelfaresProps> = (props) => {
 
     return (
         <>
+            <h1>Les aides disponibles</h1>
             {cards.map((card) => (
                 <Card {...card} />
             ))}
