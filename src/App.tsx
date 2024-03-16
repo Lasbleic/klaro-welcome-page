@@ -1,11 +1,11 @@
-function App() {
+import * as React from "react";
+import { Header } from "./Header/Header";
+
+export const App: React.FC = () => {
   return (
-    <div>
-      <header>
-        <h1>TITRE</h1>
-      </header>
-    </div>
+    <>
+      <Header />
+      {/* PAGE */}
+    </>
   );
 }
-
-export default App;
