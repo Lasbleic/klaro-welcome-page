@@ -8,7 +8,7 @@ export const SecondaryCardLayout: FC<CardLayoutProps> = (props) => {
     return (
         <div className={styles.container}>
             <h5>{title}</h5>
-            <img src={illustrationSrc} alt="Card description" />
+            <img src={illustrationSrc} alt="Card description" className={styles.illustration} />
             <button>{buttonLabel}</button>
         </div>
     );

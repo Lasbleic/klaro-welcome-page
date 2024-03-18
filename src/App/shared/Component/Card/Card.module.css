@@ -1,6 +1,7 @@
 .baseCard {
     background-color: #FFFFFF;
-    border-radius: 8px;    
+    border-radius: 8px;
+    flex-grow: 1;
 }
 
 .primaryCard {
