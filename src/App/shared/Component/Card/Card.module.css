@@ -1,18 +1,14 @@
 .baseCard {
     background-color: #FFFFFF;
-    border-radius: 8px;
-    display: flex;
-    
+    border-radius: 8px;    
 }
 
 .primaryCard {
     box-shadow: 2px 2px 4px 1px #D8DCDC;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 12px 0px;
+    padding: 0px 0px 0px 12px;
 }
 
 .secondaryCard {
     box-shadow: 1px 1px 2px 1px #D8DCDC;
-    flex-direction: column;
+    padding: 12px;
 }
