@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { SecondaryHomePageCard } from "../../shared/model/homePageCard";
-import { Card } from "../../shared/Component/Card";
+import { Card } from "../../shared/Component/Card/Card";
 
 interface AvailableWelfaresProps {
     cards: SecondaryHomePageCard[];
