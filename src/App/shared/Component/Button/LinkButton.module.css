@@ -17,6 +17,10 @@
     text-decoration: underline;
 }
 
+.linkButtonTextLeftAligned {
+    text-align: left;
+}
+
 .chevron {
     width: 16px;
     height: 16px;

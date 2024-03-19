@@ -11,7 +11,9 @@ export const LinkButton: FC<PropsWithChildren<LinkButtonProps>> = (props) => {
 
     return (
         <button className={styles.linkButton}>
-            <span className={styles.linkButtonText}>{children}</span>
+            <span className={`${styles.linkButtonText} ${withChevron && styles.linkButtonTextLeftAligned}`}>
+                {children}
+            </span>
             {withChevron && (
                 <span className={styles.chevron}>
                     <Chevron />
