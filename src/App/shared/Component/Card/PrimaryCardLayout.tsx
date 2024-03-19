@@ -10,7 +10,9 @@ export const PrimaryCardLayout: FC<CardLayoutProps> = (props) => {
     return (
         <div className={styles.container}>
             <div>
-                <Title type="h4">{title}</Title>
+                <Title type="h4" className={styles.title}>
+                    {title}
+                </Title>
                 <LinkButton withChevron>{buttonLabel}</LinkButton>
             </div>
             <img src={illustrationSrc} alt="Card description" />
