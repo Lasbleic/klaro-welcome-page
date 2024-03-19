@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { HomePageCard, PrimaryHomePageCard, SecondaryHomePageCard } from "../model/homePageCard";
 
+const FETCH_HOME_PAGE_CARDS_URL = "https://64f98ead4098a7f2fc149a34.mockapi.io/api/homepage-cards";
 
 interface FetchHomePageCardsLoadingState {
     isLoading: true;
@@ -29,7 +30,7 @@ export const useFetchHomePageCards = (): FetchHomePageCardsState => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch("https://64f98ead4098a7f2fc149a34.mockapi.io/api/homepage-cards");
+                const response = await fetch(FETCH_HOME_PAGE_CARDS_URL);
                 
                 if (!isFetchRegistrated) {
                     return;
