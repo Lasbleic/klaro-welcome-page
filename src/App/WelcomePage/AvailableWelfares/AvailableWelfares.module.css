@@ -1,9 +1,16 @@
 .container {
     display: flex;
     flex-direction: row;
-    column-gap: 12px;
+    column-gap: 8px;
 }
 
 .title {
     margin-bottom: 16px;
+}
+
+/* CSS adapted for desktop */
+@media only screen and (min-width: 768px) {
+    .container {
+        column-gap: 16px;
+    }
 }

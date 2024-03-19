@@ -1,10 +1,11 @@
 .container {
-    height: 184px;
+    height: 192px;
+    min-width: 134px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    column-gap: 12px;
+    row-gap: 12px;
 }
 
 .illustration {
@@ -15,7 +16,6 @@
 }
 
 .title {
-    height: 36px;
-    padding: 8px 0px;
+    padding: 9px 0px;
     text-align: center;
 }

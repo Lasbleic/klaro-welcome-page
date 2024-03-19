@@ -1,7 +1,7 @@
 .h1 {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
     margin: 0px;
 }
 
@@ -17,4 +17,13 @@
     font-size: 12px;
     line-height: 18px;
     margin: 0px;
+}
+
+/* CSS adapted for desktop */
+@media only screen and (min-width: 768px) {
+    .h1 {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
 }

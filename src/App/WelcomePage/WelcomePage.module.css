@@ -1,6 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    row-gap: 40px;
+    row-gap: 23px;
     padding: 32px 0px 0px 0px;
+}
+
+/* CSS adapted for desktop */
+@media only screen and (min-width: 768px) {
+    .container {
+        row-gap: 40px;
+    }
 }
