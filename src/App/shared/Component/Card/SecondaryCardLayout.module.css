@@ -1,4 +1,5 @@
 .container {
+    height: 184px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
