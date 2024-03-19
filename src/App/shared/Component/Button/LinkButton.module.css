@@ -1,0 +1,23 @@
+.linkButton {
+    background-color: transparent;
+    color: #178AF0;
+    border: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 4px;
+    align-items: center;
+}
+
+.linkButtonText {
+    font-family: 'Rubik';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration: underline;
+}
+
+.chevron {
+    width: 16px;
+    height: 16px;
+}
