@@ -4,6 +4,11 @@
     font-weight: 300 900;
 }
 
+:root {
+    --page-desktop-padding: 0px 80px;
+    --page-mobile-padding: 0px 16px;
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -17,11 +22,26 @@ body {
     height: 60px;
     display: flex;
     align-items: center;
-    padding: 0px 80px;
+    justify-content: center;
+    border-radius: 0px 0px 8px 8px;
+    padding: var(--page-mobile-padding);
     background-color: #178AF0;
     box-shadow: 3px 3px 4px 2px #B2B8B9;
 }
 
 .main {
-    padding: 0px 80px;
+    padding: var(--page-mobile-padding);
 }
+
+/* CSS adapted for desktop */
+@media only screen and (min-width: 768px) {
+    .header {
+        padding: var(--page-desktop-padding);
+        justify-content: flex-start;
+        border-radius: 0px;
+    }
+
+    .main {
+        padding: var(--page-desktop-padding);
+    }
+} 
