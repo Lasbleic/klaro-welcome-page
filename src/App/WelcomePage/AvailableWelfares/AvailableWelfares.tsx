@@ -12,13 +12,15 @@ export const AvailableWelfares: FC<AvailableWelfaresProps> = (props) => {
     const { cards } = props;
 
     return (
-        <>
-            <Title type="h1">Les aides disponibles</Title>
+        <section>
+            <Title type="h1" className={styles.title}>
+                Les aides disponibles
+            </Title>
             <div className={styles.container}>
                 {cards.map((card) => (
                     <Card {...card} key={card.id} />
                 ))}
             </div>
-        </>
+        </section>
     );
 };

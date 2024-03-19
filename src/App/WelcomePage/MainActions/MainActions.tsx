@@ -13,13 +13,15 @@ export const MainActions: FC<MainActionsProps> = (props) => {
     const { name, cards } = props;
 
     return (
-        <>
-            <Title type="h1">Bonjour {name}, voici ce que vous pouvez faire aujourd'hui! </Title>
+        <section>
+            <Title type="h1" className={styles.title}>
+                Bonjour {name}, voici ce que vous pouvez faire aujourd'hui!{" "}
+            </Title>
             <div className={styles.container}>
                 {cards.map((card) => (
                     <Card {...card} />
                 ))}
             </div>
-        </>
+        </section>
     );
 };
