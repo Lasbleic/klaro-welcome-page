@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { SecondaryHomePageCard } from "../../shared/model/homePageCard";
 import { Card } from "../../shared/Component/Card/Card";
+import { Title } from "../../shared/Component/Title/Title";
 import styles from "./AvailableWelfares.module.css";
 
 interface AvailableWelfaresProps {
@@ -12,7 +13,7 @@ export const AvailableWelfares: FC<AvailableWelfaresProps> = (props) => {
 
     return (
         <>
-            <h1>Les aides disponibles</h1>
+            <Title type="h1">Les aides disponibles</Title>
             <div className={styles.container}>
                 {cards.map((card) => (
                     <Card {...card} key={card.id} />
