@@ -3,12 +3,13 @@ import { Card } from "../../shared/Component/Card/Card";
 import { HomePageCard } from "../../shared/model/homePageCard";
 import { useCarouselControlHooks } from "./customHooks/useCarouselControlHooks";
 import styles from "./HomePageCarousel.module.css";
+import { RoundButton } from "./RoundButton";
 
-interface HomePageCarousel {
+interface HomePageCarouselProps {
     cards: HomePageCard[];
 }
 
-export const HomePageCarousel: FC<HomePageCarousel> = (props) => {
+export const HomePageCarousel: FC<HomePageCarouselProps> = (props) => {
     const { cards } = props;
 
     const [currentlyVisibleCardIndex, setCurrentVisibleCardIndex] = useState(0);
@@ -41,17 +42,16 @@ export const HomePageCarousel: FC<HomePageCarousel> = (props) => {
                 ))}
             </div>
             {isLeftArrowVisible && (
-                <button
+                <RoundButton
                     onClick={() => {
                         carouselItemsRef.current[currentlyVisibleCardIndex - 1]?.scrollIntoView({ behavior: "smooth" });
                         setCurrentVisibleCardIndex(currentlyVisibleCardIndex - 1);
                     }}
-                >
-                    Previous
-                </button>
+                    facing="left"
+                />
             )}
             {isRightArrowVisible && (
-                <button
+                <RoundButton
                     onClick={() => {
                         if (currentlyVisibleCardIndex >= cards.length) {
                             return;
@@ -59,9 +59,7 @@ export const HomePageCarousel: FC<HomePageCarousel> = (props) => {
                         carouselItemsRef.current[currentlyVisibleCardIndex + 1]?.scrollIntoView({ behavior: "smooth" });
                         setCurrentVisibleCardIndex(currentlyVisibleCardIndex + 1);
                     }}
-                >
-                    Next
-                </button>
+                />
             )}
         </>
     );

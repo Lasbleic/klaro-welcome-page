@@ -1,0 +1,15 @@
+.button {
+    width: 32px;
+    height: 32px;
+    background-color: #178AF0;
+    border-width: 0px;
+    border-radius: 50%;
+}
+
+.chevron {
+    stroke: #FFFFFF;
+}
+
+.leftChevron {
+    transform: scaleX(-1);
+}
