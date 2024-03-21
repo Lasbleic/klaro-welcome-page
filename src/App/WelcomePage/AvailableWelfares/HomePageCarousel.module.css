@@ -3,13 +3,40 @@
     flex-direction: row;
     column-gap: 8px;
     overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    padding: 0px 16px;
 }
 
 .carouselItem {
     flex-grow: 1;
-    scroll-snap-align: start;
+}
+
+.rightArrowBackground {
+    height: 100%;
+    width: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: linear-gradient(270deg, #F3F9FE 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.leftArrowBackground {
+    height: 100%;
+    width: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #F3F9FE 100%);
+}
+
+.relative {
+    position: relative;
+    margin: 0px -16px;
 }
 
 /* CSS adapted for desktop */

@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect, RefObject } from "react";
+import { useEffect, useState, useLayoutEffect, RefObject, useCallback } from "react";
 
 const getIsScrollAvailable = (carouselContainerRef: HTMLDivElement | null): boolean => {
     if (!carouselContainerRef) {
@@ -16,13 +16,18 @@ const getIsScrollAtMaximumRight = (carouselContainerRef: HTMLDivElement | null):
     return carouselContainerRef.scrollLeft + carouselContainerRef.clientWidth >= carouselContainerRef.scrollWidth;
 };
 
-export const useCarouselControlHooks = (
-    carouselContainer: RefObject<HTMLDivElement>,
-    visibleItemIndex: number,
-    itemsNumber: number
-) => {
+const getIsScrollAtMaximumLeft = (carouselContainerRef: HTMLDivElement | null): boolean => {
+    if (!carouselContainerRef) {
+        return false;
+    }
+
+    return carouselContainerRef.scrollLeft === 0;
+};
+
+export const useCarouselControlHooks = (carouselContainer: RefObject<HTMLDivElement>) => {
     const [isScrollAvailable, setIsScrollAvailable] = useState(false);
     const [isScrollAtMaximumRight, setIsScrollAtMaximumRight] = useState(false);
+    const [isScrollAtMaximumLeft, setIsScrollAtMaximumLeft] = useState(false);
 
     useLayoutEffect(() => {
         const carouselContainerRef = carouselContainer.current;
@@ -30,6 +35,7 @@ export const useCarouselControlHooks = (
         const onResizeCallback = () => {
             setIsScrollAvailable(getIsScrollAvailable(carouselContainerRef));
             setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainerRef));
+            setIsScrollAtMaximumLeft(getIsScrollAtMaximumLeft(carouselContainerRef));
         };
 
         window.addEventListener("resize", onResizeCallback);
@@ -42,18 +48,39 @@ export const useCarouselControlHooks = (
 
         const onScrollCallback = () => {
             setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainerRef));
+            setIsScrollAtMaximumLeft(getIsScrollAtMaximumLeft(carouselContainerRef));
         };
 
         setIsScrollAvailable(getIsScrollAvailable(carouselContainerRef));
         setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainerRef));
+        setIsScrollAtMaximumLeft(getIsScrollAtMaximumLeft(carouselContainerRef));
 
         carouselContainerRef?.addEventListener("scroll", onScrollCallback);
 
         return () => carouselContainerRef?.removeEventListener("scroll", onScrollCallback);
     }, [carouselContainer]);
 
+    const scrollLeft = useCallback(() => {
+        carouselContainer.current?.scrollTo({
+            left: Math.max(carouselContainer.current.scrollLeft - 150, 0),
+            behavior: "smooth",
+        });
+    }, [carouselContainer]);
+
+    const scrollRight = useCallback(() => {
+        carouselContainer.current?.scrollTo({
+            left: Math.min(
+                carouselContainer.current.scrollLeft + 150,
+                carouselContainer.current.scrollWidth - carouselContainer.current.clientWidth
+            ),
+            behavior: "smooth",
+        });
+    }, [carouselContainer]);
+
     return {
-        isLeftArrowVisible: visibleItemIndex > 0 && isScrollAvailable,
-        isRightArrowVisible: visibleItemIndex < itemsNumber - 1 && isScrollAvailable && !isScrollAtMaximumRight,
+        isLeftArrowVisible: isScrollAvailable && !isScrollAtMaximumLeft,
+        isRightArrowVisible: isScrollAvailable && !isScrollAtMaximumRight,
+        scrollLeft: scrollLeft,
+        scrollRight: scrollRight,
     };
 };
