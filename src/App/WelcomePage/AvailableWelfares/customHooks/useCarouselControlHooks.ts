@@ -1,6 +1,6 @@
 import { useEffect, useState, useLayoutEffect, RefObject, useCallback } from "react";
 
-const CAROUSEL_SCROLL_STEP = 100;
+const CAROUSEL_SCROLL_STEP = 150;
 
 const getIsScrollAvailable = (carouselContainerRef: HTMLDivElement | null): boolean => {
     if (!carouselContainerRef) {

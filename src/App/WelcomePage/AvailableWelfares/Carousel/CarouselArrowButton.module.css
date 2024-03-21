@@ -9,7 +9,3 @@
 .chevron {
     stroke: #FFFFFF;
 }
-
-.leftChevron {
-    transform: scaleX(-1);
-}

@@ -4,31 +4,20 @@
     column-gap: 8px;
     overflow-x: scroll;
     padding: 0px 16px;
+    scrollbar-width: none;
 }
 
-.rightArrowBackground {
-    height: 100%;
-    width: 43px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background: linear-gradient(270deg, #F3F9FE 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.leftArrowBackground {
-    height: 100%;
-    width: 43px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #F3F9FE 100%);
-}
+/* Deactivate the scroll bar for most browsers*/
+.hideScrollbar {
+    /*FireFox*/
+    scrollbar-width: none;
+    /*IE10+*/
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .hideScrollbar::-webkit-scrollbar {
+    /*Chrome, Safari, Edge*/
+    display: none;
+  }
 
 .relative {
     position: relative;
@@ -39,5 +28,11 @@
 @media only screen and (min-width: 768px) {
     .container {
         column-gap: 16px;
+        padding: 0px;
+    }
+
+    .relative {
+        position: relative;
+        margin: 0px;
     }
 }

@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useRef } from "react";
 import { useCarouselControlHooks } from "../customHooks/useCarouselControlHooks";
+import { CarouselArrow } from "./CarouselArrow";
 import styles from "./Carousel.module.css";
-import { RoundButton } from "./RoundButton";
 
 export const Carousel: FC<PropsWithChildren> = (props) => {
     const { children } = props;
@@ -11,20 +11,12 @@ export const Carousel: FC<PropsWithChildren> = (props) => {
         useCarouselControlHooks(carouselContainer);
 
     return (
-        <div className={styles.relative}>
+        <div className={`${styles.relative} ${styles.hideScrollbar}`}>
             <div className={styles.container} ref={carouselContainer}>
                 {children}
             </div>
-            {isLeftArrowVisible && (
-                <div className={styles.leftArrowBackground}>
-                    <RoundButton onClick={scrollLeft} facing="left" />
-                </div>
-            )}
-            {isRightArrowVisible && (
-                <div className={styles.rightArrowBackground}>
-                    <RoundButton onClick={scrollRight} />
-                </div>
-            )}
+            {isLeftArrowVisible && <CarouselArrow type="left" scroll={scrollLeft} />}
+            {isRightArrowVisible && <CarouselArrow type="right" scroll={scrollRight} />}
         </div>
     );
 };
