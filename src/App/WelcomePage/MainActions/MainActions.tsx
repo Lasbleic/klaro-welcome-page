@@ -19,7 +19,7 @@ export const MainActions: FC<MainActionsProps> = (props) => {
             </Title>
             <div className={styles.container}>
                 {cards.map((card) => (
-                    <Card {...card} />
+                    <Card {...card} key={card.id} />
                 ))}
             </div>
         </section>

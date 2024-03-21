@@ -14,15 +14,14 @@ export const HomePageCarousel: FC<HomePageCarousel> = (props) => {
     const [currentlyVisibleCardIndex, setCurrentVisibleCardIndex] = useState(0);
 
     const carouselContainer = useRef<HTMLDivElement>(null);
-
-    const carouselItemsRef = useRef<Array<HTMLDivElement | null>>([]);
-
     const { isLeftArrowVisible, isRightArrowVisible } = useCarouselControlHooks(
         carouselContainer,
         currentlyVisibleCardIndex,
         cards.length
     );
 
+    const carouselItemsRef = useRef<Array<HTMLDivElement | null>>([]);
+    // Make sure carousel item ref array is cleaned when the cards list update
     useEffect(() => {
         carouselItemsRef.current = carouselItemsRef.current.slice(0, cards.length);
     }, [cards]);
