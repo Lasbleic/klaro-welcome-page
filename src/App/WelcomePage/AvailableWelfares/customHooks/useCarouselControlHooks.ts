@@ -25,27 +25,31 @@ export const useCarouselControlHooks = (
     const [isScrollAtMaximumRight, setIsScrollAtMaximumRight] = useState(false);
 
     useLayoutEffect(() => {
+        const carouselContainerRef = carouselContainer.current;
+
         const onResizeCallback = () => {
-            setIsScrollAvailable(getIsScrollAvailable(carouselContainer.current));
-            setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainer.current));
+            setIsScrollAvailable(getIsScrollAvailable(carouselContainerRef));
+            setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainerRef));
         };
 
         window.addEventListener("resize", onResizeCallback);
 
         return () => window.removeEventListener("resize", onResizeCallback);
-    }, []);
+    }, [carouselContainer]);
 
     useEffect(() => {
+        const carouselContainerRef = carouselContainer.current;
+
         const onScrollCallback = () => {
-            setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainer.current));
+            setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainerRef));
         };
 
-        setIsScrollAvailable(getIsScrollAvailable(carouselContainer.current));
-        setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainer.current));
+        setIsScrollAvailable(getIsScrollAvailable(carouselContainerRef));
+        setIsScrollAtMaximumRight(getIsScrollAtMaximumRight(carouselContainerRef));
 
-        carouselContainer.current?.addEventListener("scroll", onScrollCallback);
+        carouselContainerRef?.addEventListener("scroll", onScrollCallback);
 
-        return () => carouselContainer.current?.removeEventListener("scroll", onScrollCallback);
+        return () => carouselContainerRef?.removeEventListener("scroll", onScrollCallback);
     }, [carouselContainer]);
 
     return {
