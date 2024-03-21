@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from "react";
-import { ReactComponent as Chevron } from "./chevron.svg";
+import { ReactComponent as Chevron } from "../../icons/chevron.svg";
 import styles from "./LinkButton.module.css";
 
 interface LinkButtonProps {
