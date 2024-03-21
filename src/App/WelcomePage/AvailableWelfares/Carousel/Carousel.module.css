@@ -6,10 +6,6 @@
     padding: 0px 16px;
 }
 
-.carouselItem {
-    flex-grow: 1;
-}
-
 .rightArrowBackground {
     height: 100%;
     width: 43px;

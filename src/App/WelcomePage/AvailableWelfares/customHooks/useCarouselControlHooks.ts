@@ -1,5 +1,7 @@
 import { useEffect, useState, useLayoutEffect, RefObject, useCallback } from "react";
 
+const CAROUSEL_SCROLL_STEP = 100;
+
 const getIsScrollAvailable = (carouselContainerRef: HTMLDivElement | null): boolean => {
     if (!carouselContainerRef) {
         return false;
@@ -62,7 +64,7 @@ export const useCarouselControlHooks = (carouselContainer: RefObject<HTMLDivElem
 
     const scrollLeft = useCallback(() => {
         carouselContainer.current?.scrollTo({
-            left: Math.max(carouselContainer.current.scrollLeft - 150, 0),
+            left: Math.max(carouselContainer.current.scrollLeft - CAROUSEL_SCROLL_STEP, 0),
             behavior: "smooth",
         });
     }, [carouselContainer]);
@@ -70,7 +72,7 @@ export const useCarouselControlHooks = (carouselContainer: RefObject<HTMLDivElem
     const scrollRight = useCallback(() => {
         carouselContainer.current?.scrollTo({
             left: Math.min(
-                carouselContainer.current.scrollLeft + 150,
+                carouselContainer.current.scrollLeft + CAROUSEL_SCROLL_STEP,
                 carouselContainer.current.scrollWidth - carouselContainer.current.clientWidth
             ),
             behavior: "smooth",

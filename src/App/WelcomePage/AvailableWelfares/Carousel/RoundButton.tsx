@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ReactComponent as Chevron } from "../../shared/icons/chevron.svg";
+import { ReactComponent as Chevron } from "../../../shared/icons/chevron.svg";
 import styles from "./RoundButton.module.css";
 
 interface RoundButtonProps {

@@ -1,16 +1,10 @@
-import { FC, useRef } from "react";
-import { Card } from "../../shared/Component/Card/Card";
-import { HomePageCard } from "../../shared/model/homePageCard";
-import { useCarouselControlHooks } from "./customHooks/useCarouselControlHooks";
-import styles from "./HomePageCarousel.module.css";
+import { FC, PropsWithChildren, useRef } from "react";
+import { useCarouselControlHooks } from "../customHooks/useCarouselControlHooks";
+import styles from "./Carousel.module.css";
 import { RoundButton } from "./RoundButton";
 
-interface HomePageCarouselProps {
-    cards: HomePageCard[];
-}
-
-export const HomePageCarousel: FC<HomePageCarouselProps> = (props) => {
-    const { cards } = props;
+export const Carousel: FC<PropsWithChildren> = (props) => {
+    const { children } = props;
 
     const carouselContainer = useRef<HTMLDivElement>(null);
     const { isLeftArrowVisible, isRightArrowVisible, scrollRight, scrollLeft } =
@@ -19,11 +13,7 @@ export const HomePageCarousel: FC<HomePageCarouselProps> = (props) => {
     return (
         <div className={styles.relative}>
             <div className={styles.container} ref={carouselContainer}>
-                {cards.map((card, i) => (
-                    <div key={card.id} className={styles.carouselItem}>
-                        <Card {...card} key={card.id} />
-                    </div>
-                ))}
+                {children}
             </div>
             {isLeftArrowVisible && (
                 <div className={styles.leftArrowBackground}>
