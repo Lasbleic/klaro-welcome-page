@@ -5,8 +5,9 @@ import { SecondaryCardLayout } from "./SecondaryCardLayout";
 
 export interface CardLayoutProps {
     title: string;
-    illustrationSrc: string;
     buttonLabel: string;
+    illustrationSrc?: string;
+    className?: string;
 }
 
 interface CardProps extends CardLayoutProps {
@@ -14,14 +15,14 @@ interface CardProps extends CardLayoutProps {
 }
 
 export const Card: FC<CardProps> = (props) => {
-    const { type, ...other } = props;
+    const { type, className, ...other } = props;
 
-    const className = `${styles.baseCard} ${type === "primary" && styles.primaryCard} ${
+    const computedClassName = `${styles.baseCard} ${type === "primary" && styles.primaryCard} ${
         type === "secondary" && styles.secondaryCard
-    }`;
+    } ${className}`;
 
     return (
-        <article className={className}>
+        <article className={computedClassName}>
             {type === "primary" && <PrimaryCardLayout {...other} />}
             {type === "secondary" && <SecondaryCardLayout {...other} />}
         </article>

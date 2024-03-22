@@ -15,7 +15,7 @@ export const PrimaryCardLayout: FC<CardLayoutProps> = (props) => {
                 </Title>
                 <LinkButton withChevron>{buttonLabel}</LinkButton>
             </div>
-            <img src={illustrationSrc} alt="Card description" />
+            {illustrationSrc && <img src={illustrationSrc} alt="Card description" />}
         </div>
     );
 };
