@@ -19,11 +19,14 @@ interface FetchHomePageCardsFetchedState {
     secondaryHomePageCards: SecondaryHomePageCard[];
 }
 
-type FetchHomePageCardsState = FetchHomePageCardsLoadingState | FetchHomePageCardsErrorState | FetchHomePageCardsFetchedState;
+type FetchHomePageCardsState =
+    | FetchHomePageCardsLoadingState
+    | FetchHomePageCardsErrorState
+    | FetchHomePageCardsFetchedState;
 
 export const useFetchHomePageCards = (): FetchHomePageCardsState => {
-    const [homePageCardsState, setHomePageCardsState] = useState<FetchHomePageCardsState>({ isLoading : true })
-    
+    const [homePageCardsState, setHomePageCardsState] = useState<FetchHomePageCardsState>({ isLoading: true });
+
     // This whole useEffect could be abstracted as a useFetch to be reused, but at this point of refactor, we'd better use a proper framework
     useEffect(() => {
         let isFetchRegistrated = true;
@@ -31,7 +34,7 @@ export const useFetchHomePageCards = (): FetchHomePageCardsState => {
         const fetchData = async () => {
             try {
                 const response = await fetch(FETCH_HOME_PAGE_CARDS_URL);
-                
+
                 if (!isFetchRegistrated) {
                     return;
                 }
@@ -40,15 +43,15 @@ export const useFetchHomePageCards = (): FetchHomePageCardsState => {
                     throw new Error(response.statusText);
                 }
 
-                const homePageCards = await response.json() as HomePageCard[];
+                const homePageCards = (await response.json()) as HomePageCard[];
                 if (!homePageCards) {
                     throw new Error();
                 }
-                    
+
                 const primaryHomePageCards: PrimaryHomePageCard[] = [];
                 const secondaryHomePageCards: SecondaryHomePageCard[] = [];
                 for (const card of homePageCards) {
-                    switch(card.type) {
+                    switch (card.type) {
                         case "primary":
                             primaryHomePageCards.push(card);
                             break;
@@ -64,22 +67,22 @@ export const useFetchHomePageCards = (): FetchHomePageCardsState => {
                     primaryHomePageCards: primaryHomePageCards,
                     secondaryHomePageCards: secondaryHomePageCards,
                 });
-
             } catch {
                 setHomePageCardsState({
                     isLoading: false,
                     isError: true,
-                })
+                });
             }
-        }
-        
-          
-        fetchData()
+        };
+
+        fetchData();
 
         // cancel any future `setHomePageCardsState`
-        const unregistratingFunction = () => { isFetchRegistrated = false };
+        const unregistratingFunction = () => {
+            isFetchRegistrated = false;
+        };
         return unregistratingFunction;
-    }, [])
+    }, []);
 
     return homePageCardsState;
-}
+};

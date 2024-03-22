@@ -1,0 +1,12 @@
+<svg width="16.933mm" height="16.933mm" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>loader_klaro_2</title>
+ <defs>
+  <linearGradient id="linearGradient1228" x1="120.02" x2="132.46" y1="124.3" y2="126.58" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#178af0" offset="0"/>
+   <stop stop-color="#178af0" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-117.1 -113.88)">
+  <path d="m125.44 113.88a8.4667 8.4667 0 0 0-5.8565 2.4789 8.4667 8.4667 0 0 0-1.3456 10.22 8.4667 8.4667 0 0 0 9.5234 3.945 8.4667 8.4667 0 0 0 6.2756-8.1783h-1.0583a7.4083 7.4083 0 0 1-5.4911 7.1562 7.4083 7.4083 0 0 1-8.3328-3.452 7.4083 7.4083 0 0 1 1.1772-8.9426 7.4083 7.4083 0 0 1 8.9426-1.1772l0.52917-0.91674a8.4667 8.4667 0 0 0-4.3636-1.1333z" fill="url(#linearGradient1228)" style="paint-order:normal"/>
+ </g>
+</svg>
